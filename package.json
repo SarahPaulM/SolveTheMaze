@@ -1,0 +1,22 @@
+{
+  "name": "solvethemaze",
+  "version": "1.0.0",
+  "description": "Solve the maze within the book Maze by Christopher Manson",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SarahPaulM/SolveTheMaze.git"
+  },
+  "keywords": [
+    "Maze"
+  ],
+  "author": "Sarah-Paul McCarty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SarahPaulM/SolveTheMaze/issues"
+  },
+  "homepage": "https://github.com/SarahPaulM/SolveTheMaze#readme"
+}
