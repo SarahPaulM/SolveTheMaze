@@ -16,15 +16,17 @@ doors.set(7, [33, 36, 16]);
 doors.set(8, [31, 6, 29, 12]);
 doors.set(9, [3, 18]);
 doors.set(10, [34, 41, 14]);
+doors.set(11, [40, 24]);
 doors.set(12, [2, 21, 8, 39]);
+doors.set(13, [27, 18, 25]);
 doors.set(20, [5, 27, 1]);
 
 doors.set(26, [30, 36, 38, 1]);
 doors.set(29, [8, 40, 35, 2, 17]);
-doors.set(30, [42, 5, 15]);
+doors.set(30, [42, 34, 5, 15]);
 doors.set(39, [11, 4, 12]);
 doors.set(42, [22, 30, 4, 25, 37]);
-doors.set(17, [1, 45]);
+doors.set(17, [6, 45, 33]);
 
 
 function DoNothing() {
@@ -36,7 +38,7 @@ function OpenDoor(list, door) {
 			
 	_list = doors.get(door);
 	if(!_list) {
-		return
+		return -1;
 	}
 	for (const doornum of _list) {
 		if(doornum == 45) {
@@ -47,12 +49,13 @@ function OpenDoor(list, door) {
 			}
 			console.log(doornum); // log this doornum
 			console.log();
-			return;
+			return 1;
 		}
 		else if(doornum == 1) {
 			console.log("ignore door to start (1)");
 		}
 		else {
+			// skip rooms we've already visited
 			if(list.has(doornum)) {
 				console.log("repeated room", doornum,", skip");
 			}
@@ -60,7 +63,11 @@ function OpenDoor(list, door) {
 				// double check door exists in map
 				if(doors.get(doornum)) {
 					list.add(doornum);
-					OpenDoor(list, doornum);
+					retVal = OpenDoor(list, doornum);
+					if(retVal <= 0) {
+						// remove door from list if it didn't lead to room 45 (return val 1)
+						list.delete(doornum);
+					}
 				}
 				else {
 					// throw error, no such room
@@ -68,6 +75,7 @@ function OpenDoor(list, door) {
 			}
 		}
 	}
+	return 0;
 }
 	
 const emptyList = new Set()
