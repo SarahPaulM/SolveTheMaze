@@ -1,9 +1,19 @@
+const csv = require('csv-parser');
+const fs = require('fs');
+
+// Define the room exits
+const doors = new Map();
+
+fs.createReadStream('maze.csv')
+  .pipe(csv({ headers: false }))
+  .on('data', (row) => {
+	  console.log(row);
+  })
+
 /* Let's start with just printing a simple first line of text */
 console.log("Welome to the Maze book solver.")
 console.log("...")
 
-// Define the room exits
-const doors = new Map();
 
 doors.set(0, [1]);
 doors.set(1, [20, 26, 41, 21]);
