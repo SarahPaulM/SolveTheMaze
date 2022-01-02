@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/SarahPaulM/SolveTheMaze/issues"
   },
-  "homepage": "https://github.com/SarahPaulM/SolveTheMaze#readme"
+  "homepage": "https://github.com/SarahPaulM/SolveTheMaze#readme",
+  "dependencies": {
+    "csv-parser": "^3.0.0"
+  }
 }
