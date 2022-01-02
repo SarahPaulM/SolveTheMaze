@@ -12,7 +12,7 @@ fs.createReadStream('maze.csv')
   .pipe(csv({ headers: false }))
 //  .on('data', (data) => results.push(data))
   .on('data', (row) => {
-	  console.log(row);
+//	  console.log(row);
 	  localDoors = new Set();
 //    localDoors = row.values();
 	  for (const el in row) {
@@ -65,8 +65,8 @@ function OpenDoor(list, door) {
 	}
 	for (const doornum of _list) {
 		if(doornum == GOAL) {
-			console.log("Found the end!");
-			console.log("  Follow this path: ");
+			console.log("\x1b[31m!Found the end!");
+			console.log("Follow this path: \x1b[32m");
 			for (const finalDoornum of list) {
 				console.log(finalDoornum);
 			}
@@ -104,17 +104,14 @@ function OpenDoor(list, door) {
 function start () {
 	const emptyList = new Set()
 
-console.log("results:");
-console.log(results);
 console.log("doors:");
 console.log(doors);
+console.log("\n\n");
 
 /* Let's start with just printing a simple first line of text */
-console.log("Welome to the Maze book solver.")
-console.log("...")
+console.log("Welome to the Maze book solver!\n");
 
-
-// loop through all doors until you find 45
+// loop through all doors/paths starting with room START until you find door GOAL
 OpenDoor(emptyList, START);
 }
 
