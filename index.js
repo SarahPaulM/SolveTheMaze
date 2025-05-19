@@ -7,6 +7,7 @@ const START = 45;
 const doors = new Map();
 
 // Load the maze structure from a CSV file
+// format: room, door, door, door, ...
 fs.createReadStream('maze.csv')
   .pipe(csv({ headers: false }))
   .on('data', (row) => {
