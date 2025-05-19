@@ -1,6 +1,8 @@
 # SolveTheMaze
 Find the path through the book Maze by Christopher Manson
 
+https://www.goodreads.com/book/show/99048.Maze
+
 # 🧩 Maze Solver in Node.js
 
 This project is a recursive depth-first search (DFS) maze solver written in Node.js. It reads a maze structure from a CSV file and finds a path from a start room to a goal room using adjacency maps.
