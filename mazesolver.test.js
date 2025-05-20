@@ -1,4 +1,4 @@
-const { doors, openDoor } = require('./index'); // adjust exports/imports
+const { doors, openDoor } = require('./mazesolver'); // adjust exports/imports
 
 test('should contain START room', () => {
   expect(doors.has(45)).toBe(true);
