@@ -69,3 +69,4 @@ function start() {
   openDoor(visited, START);
 }
 
+module.exports = { doors, openDoor };
