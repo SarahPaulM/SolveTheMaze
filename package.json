@@ -4,8 +4,11 @@
   "description": "Solve the maze within the book Maze by Christopher Manson",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  } 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SarahPaulM/SolveTheMaze.git"
