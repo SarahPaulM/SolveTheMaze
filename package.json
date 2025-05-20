@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "jest": "^29.7.0"
-  } 
+  }, 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SarahPaulM/SolveTheMaze.git"
