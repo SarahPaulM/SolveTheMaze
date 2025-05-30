@@ -4,11 +4,8 @@
   "description": "Solve the maze within the book Maze by Christopher Manson",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "jest": "^29.7.0"
-  }, 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SarahPaulM/SolveTheMaze.git"
@@ -23,6 +20,6 @@
   },
   "homepage": "https://github.com/SarahPaulM/SolveTheMaze#readme",
   "dependencies": {
-    "csv-parser": "^3.0.0"
+    "csv-parser": "^3.2.0"
   }
 }
