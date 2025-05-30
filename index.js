@@ -1,10 +1,14 @@
 const csv = require('csv-parser');
 const fs = require('fs');
-
+const arguments = process.argv;
 const GOAL = 1;
 const START = 45;
 
 const doors = new Map();
+
+if(arguments[2] == 'test') {
+  return test();
+}
 
 // Load the maze structure from a CSV file
 // format: room, door, door, door, ...
@@ -69,4 +73,11 @@ function start() {
   openDoor(visited, START);
 }
 
-module.exports = { doors, openDoor };
+function test() {
+  console.log("Beginning self test..");
+//  check door number 1 for exits (there should be at least one)
+  const exits = doors.get(1);
+  if (!exits) return -1;
+// success
+  else return 0; 
+}
