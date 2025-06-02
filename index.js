@@ -6,10 +6,6 @@ const START = 45;
 
 const doors = new Map();
 
-if(arguments[2] == 'test') {
-  return test();
-}
-
 // Load the maze structure from a CSV file
 // format: room, door, door, door, ...
 fs.createReadStream('maze.csv')
@@ -26,7 +22,8 @@ fs.createReadStream('maze.csv')
     localDoors.delete(room); // Remove self-loop
     doors.set(room, localDoors);
   })
-  .on('end', () => start());
+  .on('end', () => start(arguments));
+
 
 /**
  * Recursive DFS to find the goal room from a given room.
@@ -65,19 +62,37 @@ function openDoor(visited, door) {
 /**
  * Entry point for the maze solver
  */
-function start() {
+function start(arguments) {
   console.log("Welcome to the Maze Solver!\n");
   console.log("Loaded doors map:\n", doors, "\n");
+  
+  console.log("argument list", arguments);
+  
+  for (let i=0; i< arguments.length; i++) { 
+    console.log("argument: ", arguments[i]);
+    }
+  // if test argument, then run self test only
+  if(arguments[2] == 'test') {
+    return test_doors_simple();
+    }
 
   const visited = new Set();
   openDoor(visited, START);
 }
 
-function test() {
+function test_doors_simple() {
+  const start_room = 1; // set start room to 1
   console.log("Beginning self test..");
-//  check door number 1 for exits (there should be at least one)
-  const exits = doors.get(1);
-  if (!exits) return -1;
-// success
-  else return 0; 
+  //  check door number 1 for exits (there should be at least one)
+  const exits = doors.get(start_room);
+  // 
+  if (!exits) {
+    console.log("no exits from room ", start_room);
+    return -1;
+  }
+  // success if at least one door available from starting room
+  else {
+    console.log("Success!\nexits from room ", start_room, exits);
+    return 0;
+    } 
 }
